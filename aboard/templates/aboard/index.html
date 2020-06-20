@@ -1,0 +1,155 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            background-color: #0060a0;
+        }
+        @media screen and (max-width: 1200px){
+            html, body {
+                font-size: 16px;}
+                .btn {
+                display: inline-block;
+                color: rgb(0, 0, 0);
+                font-weight: 1700;
+                font-size: 16px;
+                width:250px; height:80px;
+                text-decoration: none;
+                user-select: none;
+                padding: .5em 2em;
+                outline: none;
+                border: 2px solid;
+                border-radius: 1px;
+                transition: 0.2s;
+
+            }
+            }
+        @media screen and (max-width: 992px){
+            html, body {
+                font-size: 20px;}
+                .btn {
+                display: inline-block;
+                color: rgb(0, 0, 0);
+                font-weight: 1700;
+                font-size: 20px;
+                width:250px; height:80px;
+                text-decoration: none;
+                user-select: none;
+                padding: .5em 2em;
+                outline: none;
+                border: 2px solid;
+                border-radius: 1px;
+                transition: 0.2s;
+
+            }
+            }
+        @media screen and (max-width: 768px){
+            html, body {
+                font-size: 25px;}
+                .btn {
+                display: inline-block;
+                color: rgb(0, 0, 0);
+                font-weight: 1700;
+                font-size: 25px;
+                width:250px; height:80px;
+                text-decoration: none;
+                user-select: none;
+                padding: .5em 2em;
+                outline: none;
+                border: 2px solid;
+                border-radius: 1px;
+                transition: 0.2s;
+
+            }
+            }
+        @media screen and (max-width: 480px){
+            html, body {
+                font-size: 30px;}
+            .btn {
+                display: inline-block;
+                color: rgb(0, 0, 0);
+                font-weight: 1700;
+                font-size: 20px;
+                width:250px; height:80px;
+                text-decoration: none;
+                user-select: none;
+                padding: .5em 2em;
+                outline: none;
+                border: 2px solid;
+                border-radius: 1px;
+                transition: 0.2s;
+
+            }
+        }
+        
+
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".btn").click(function(){
+                $.ajax({
+                    url: '',
+                    type: 'get',
+                    data: {
+                        button_text: $(this).text()
+                    },
+                    success: function(response){
+                        $("#seconds").empty()
+                        $("#seconds").append('<p><b>Пол, Возраст: </b>' + response.seconds[0] + ' ' + response.seconds[1] + '</p>')
+                        $("#seconds").append('<p><b>Профессия: </b>' + response.seconds[2] + '</p>')
+                        $("#seconds").append('<p><b>Здоровье: </b>' + response.seconds[3] + '</p>')
+                        $("#seconds").append('<p><b>Черты характера: </b>' + response.seconds[4] + '</p>')
+                        $("#seconds").append('<p><b>Хобби: </b>' + response.seconds[5] + '</p>')
+                        $("#seconds").append('<p><b>Фобии: </b>' + response.seconds[6] + '</p>')
+                        $("#seconds").append('<p><b>Инвентарь: </b>' + response.seconds[7] + '</p>')
+                        $("#seconds").append('<p><b>Доп.Ифно: </b>' + response.seconds[8] + '</p>')
+                        $("#seconds").append('<h2>Действия</h2>')
+                        $("#seconds").append('<p><b>1: </b>' + response.seconds[9] + '</p>')
+                        $("#seconds").append('<p><b>2: </b>' + response.seconds[10] + '</p>')
+                    }
+                });
+            });
+            
+        });
+     </script> 
+    </head> 
+    <body> 
+        
+        
+        <div style="text-align: center;">
+            <h1>Игра "Бункер"</h1>
+        <h2>Характеристика</h2>
+        <div id='seconds'>
+
+        </div>
+        <button type="button" class="btn btn-success btn-lg" style="display: inline-block;
+        color: rgb(0, 0, 0);
+        font-weight: 1700;
+        text-decoration: none;
+        user-select: none;
+        padding: .5em 2em;
+        outline: none;
+        border: 2px solid;
+        border-radius: 1px;
+        transition: 0.2s;">Сгенерировать</button>
+
+        <h2> Ситуация </h2>
+            
+
+            </form><p><b>Катастрофа:</b> {{eve.0}}</p>
+            <p><b>О бункере:</b> {{eve.1}} , {{eve.2}}, {{eve.3}} </p>
+            
+            <p><b>Время нахождения (еда и питье есть):</b> {{eve.4}}</p>
+            <p><b>В бункере:</b> {{eve.5}}, {{eve.6}}, {{eve.7}}</p>
+            
+            
+                {% csrf_token %}                
+           
+        </div>
+    </body>
+</html>
